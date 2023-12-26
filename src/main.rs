@@ -7,11 +7,16 @@ const HEIGHT: f32 = 540.;
 
 fn main() {
     let option = eframe::NativeOptions {
-        viewport: egui::ViewportBuilder::default().with_inner_size([WIDTH, HEIGHT]),
+        // viewport: egui::ViewportBuilder::default().with_inner_size([WIDTH, HEIGHT]),
+        viewport: egui::ViewportBuilder::default()
+            .with_inner_size([WIDTH, HEIGHT])
+            .with_resizable(true)
+            .with_maximized(true),
         multisampling: 4,
         renderer: eframe::Renderer::Glow,
         ..Default::default()
     };
+    // option.viewport.maximized = Some(true);
     let _ = eframe::run_native(
         "Using glow",
         option,
@@ -63,8 +68,7 @@ impl eframe::App for Balagan {
 
 impl Balagan {
     fn custom_painting(&mut self, ui: &mut egui::Ui) {
-        let (rect, response) =
-            ui.allocate_exact_size(egui::Vec2::splat(300.), egui::Sense::drag());
+        let (rect, response) = ui.allocate_exact_size(egui::Vec2::splat(300.), egui::Sense::drag());
 
         self.angle += response.drag_delta().x * 0.01;
 
