@@ -8,13 +8,9 @@ int main(int argc, char* argv[]) {
   QLabel* label = new QLabel(&window);
   window.setWindowTitle("First window");
   window.resize(960, 540);
-  window.showMaximized();
-  QString str =
-      "This is have to long text, so I trying to make it more ane more "
-      "bigger.\nEven more, and again. Probably and again.\nAng over, and over "
-      "again.";
+  // window.showMaximized();
   label->setAlignment(Qt::AlignLeft);
-  label->setText(str);
+  label->setText("Some text: so far");
   label->adjustSize();
   window.show();
   return app.exec();
