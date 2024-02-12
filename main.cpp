@@ -1,5 +1,6 @@
 #include <QLabel>
 #include <QMouseEvent>
+#include <QEvent>
 #include <QtWidgets>
 
 int main(int argc, char* argv[]) {
